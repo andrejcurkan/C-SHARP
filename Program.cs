@@ -1,68 +1,73 @@
-﻿/* Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+﻿
 
-Console.WriteLine("Введите первое число:");
-int number1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число:");
-int number2 = Convert.ToInt32(Console.ReadLine());
-if (number1 > number2)
+
+// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+// 456 -> 5
+// 782 -> 8
+// 918 -> 1
+
+Console.Write("Введите трехзначное число: ");
+int number = int.Parse(Console.ReadLine()!);
+
+if (number >= 100 && number <= 999)
 {
-    Console.WriteLine($"{number1} больше чем {number2}");
-}
-else if (number1 < number2)
-{
-    Console.WriteLine($"{number1} меньше чем {number2}");
-}
-else
-{
-    Console.WriteLine("Числа равны");
-}
-*/
-
-
-/* Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
-
-Console.WriteLine("Введите первое число:");
-int number1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число:");
-int number2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите третье число:");
-int number3 = Convert.ToInt32(Console.ReadLine());
-int maxNumber = number1;
-if (number2 > maxNumber)
-{
-     maxNumber = number2;
-}
-
-if (number3 > maxNumber)
-{
-      maxNumber = number3;
-}
-Console.WriteLine($"Максимальное число: {maxNumber}");
-*/    
-
-/* Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
-
-Console.WriteLine("Введите число:");
-int number = Convert.ToInt32(Console.ReadLine());
-if (number % 2 == 0)
-{
-      Console.WriteLine($"{number} это четное число.");
+int secondDigit = (number / 10) % 10;
+Console.WriteLine($"Вторая цифра числа: {secondDigit}");
 }
 else
 {
-      Console.WriteLine($"{number} это нечетное число.");
+Console.WriteLine("Вы ввели не трехзначное число.");
 }
-*/
 
-/* Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 
-Console.WriteLine("Введите число N:");
-int N = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine($"Четные числа от 1 до {N}:");
-for (int i = 2; i <= N; i += 2)
+
+
+//Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+//645 -> 5
+//78 -> третьей цифры нет
+//32679 -> 6
+
+
+Console.Write("Введите число: ");
+int number = int.Parse(Console.ReadLine()!);
+int fnumber(int number)
 {
-      Console.WriteLine(i);
+while (number > 999)
+{
+number /= 10;
 }
-*/        
+return number % 10;
+}
+bool check(int number)
+{
+if (number < 100)
+return false;
+else return true;
+}
+if (check(number) != true)
+Console.WriteLine("Третьей цифры нет");
+else
+Console.WriteLine($"Третья цифра числа {number} является {fnumber(number)}");
 
-        
+
+
+
+//Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+// 6 -> да
+// 7 -> да
+// 1 -> нет
+
+
+
+Console.Write("Введи цифру, обозначающую день недели: ");
+int dayNumber = Convert.ToInt32(Console.ReadLine());
+if (dayNumber == 6 || dayNumber == 7) {
+  Console.WriteLine("(этот день выходной) -> да");
+  }
+  else if (dayNumber < 1 || dayNumber > 7) {
+    Console.WriteLine("это вообще не день недели");
+  }
+  else Console.WriteLine("(этот день не выходной) -> нет");
+
+
+
