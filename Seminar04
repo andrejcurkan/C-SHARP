@@ -1,0 +1,53 @@
+//Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+ /*   
+Console.Write("Введите число A: ");
+double A = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите степень B: ");
+int B = Convert.ToInt32(Console.ReadLine());
+double result = 1;
+for (int i = 1; i <= B; i++)
+{
+    result *= A;
+}
+Console.WriteLine($"{A} в степени {B} равно {result}");
+*/
+
+// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+/*
+Console.Write("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+int originalNumber = number;
+while (number > 0)
+{
+    int digit = number % 10; // Получаем последнюю цифру числа
+    sum += digit; // Добавляем её к сумме
+    number /= 10; // Убираем последнюю цифру из числа
+}
+Console.WriteLine($"Сумма цифр числа {originalNumber} равна {sum}");
+*/ 
+
+
+
+//Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+/*
+Random random = new Random(); // Создаем генератор случайных чисел
+int[] numbers = new int[8]; // Создаем массив из 8 случайных элементов типа int
+for (int i = 0; i < 8; i++) // Заполняем массив случайными значениями
+{
+    numbers[i] = random.Next(1, 100); // Генерируем случайное число от 1 до 99
+}
+Console.Write("[");
+for (int i = 0; i < 8; i++)
+{
+    Console.Write(numbers[i]);
+    if (i < 7)
+{
+        Console.Write(", ");
+}
+}
+Console.WriteLine("]");
+    
+*/
+    
