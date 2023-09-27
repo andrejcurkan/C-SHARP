@@ -1,0 +1,265 @@
+/* Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Исходный двумерный массив
+        int[,] array = {
+            {1, 4, 7, 2},
+            {5, 9, 2, 3},
+            {8, 4, 2, 4}
+        };
+
+        // Упорядочивание элементов каждой строки по убыванию
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1) - 1; j++)
+            {
+                for (int k = 0; k < array.GetLength(1) - j - 1; k++)
+                {
+                    if (array[i, k] < array[i, k + 1])
+                    {
+                        // Обмен элементов
+                        int temp = array[i, k];
+                        array[i, k] = array[i, k + 1];
+                        array[i, k + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        // Вывод упорядоченного массива
+        Console.WriteLine("Упорядоченный массив:");
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write(array[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+*/
+
+/* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Исходный прямоугольный двумерный массив
+        int[,] array = {
+            {1, 4, 7, 2},
+            {5, 9, 2, 3},
+            {8, 4, 2, 4},
+            {5, 2, 1, 1}
+        };
+
+        int minSum = int.MaxValue; // Начальное значение для поиска минимальной суммы
+        int minRowIndex = -1; // Начальное значение для индекса строки с минимальной суммой
+
+        // Перебираем строки массива
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            int currentSum = 0; // Сумма элементов текущей строки
+
+            // Считаем сумму элементов в текущей строке
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                currentSum += array[i, j];
+            }
+
+            // Если текущая сумма меньше минимальной, обновляем минимум
+            if (currentSum < minSum)
+            {
+                minSum = currentSum;
+                minRowIndex = i;
+            }
+        }
+
+        // Вывод строки с наименьшей суммой элементов
+        Console.WriteLine("Строка с наименьшей суммой элементов: " + (minRowIndex + 1)); // +1, так как индексация начинается с 0
+    }
+}
+
+*/
+
+/* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Создаем трехмерный массив 2 x 2 x 2
+        int[,,] array = new int[2, 2, 2];
+        int value = 10; // Начальное значение для элементов массива
+
+        // Заполняем массив неповторяющимися двузначными числами
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    array[i, j, k] = value;
+                    value++;
+                }
+            }
+        }
+
+        // Выводим массив с индексами каждого элемента
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    Console.WriteLine($"{array[i, j, k]}({i},{j},{k})");
+                }
+            }
+        }
+    }
+}
+
+*/
+
+/*  Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4. 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n = 4; // Размерность массива (4x4)
+        int[,] spiralArray = new int[n, n];
+
+        int currentValue = 1;
+        int rowStart = 0, rowEnd = n - 1, colStart = 0, colEnd = n - 1;
+
+        while (currentValue <= n * n)
+        {
+            // Заполняем верхнюю строку слева направо
+            for (int i = colStart; i <= colEnd; i++)
+            {
+                spiralArray[rowStart, i] = currentValue++;
+            }
+            rowStart++;
+
+            // Заполняем правый столбец сверху вниз
+            for (int i = rowStart; i <= rowEnd; i++)
+            {
+                spiralArray[i, colEnd] = currentValue++;
+            }
+            colEnd--;
+
+            // Заполняем нижнюю строку справа налево
+            for (int i = colEnd; i >= colStart; i--)
+            {
+                spiralArray[rowEnd, i] = currentValue++;
+            }
+            rowEnd--;
+
+            // Заполняем левый столбец снизу вверх
+            for (int i = rowEnd; i >= rowStart; i--)
+            {
+                spiralArray[i, colStart] = currentValue++;
+            }
+            colStart++;
+        }
+
+        // Выводим массив
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write($"{spiralArray[i, j]:D2} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+*/
+
+*************** Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Задаем две матрицы
+        int[,] matrixA = {
+            {2, 4},
+            {3, 2}
+        };
+
+        int[,] matrixB = {
+            {3, 4},
+            {3, 3}
+        };
+
+        // Выводим матрицу A
+        Console.WriteLine("Матрица A:");
+        PrintMatrix(matrixA);
+
+        // Выводим матрицу B
+        Console.WriteLine("Матрица B:");
+        PrintMatrix(matrixB);
+
+        // Проверяем, можно ли умножить матрицы
+        int rowsA = matrixA.GetLength(0);
+        int colsA = matrixA.GetLength(1);
+        int rowsB = matrixB.GetLength(0);
+        int colsB = matrixB.GetLength(1);
+
+        if (colsA != rowsB)
+        {
+            Console.WriteLine("Умножение матриц невозможно. Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы.");
+            return;
+        }
+
+        // Создаем матрицу для результата умножения
+        int[,] resultMatrix = new int[rowsA, colsB];
+
+        // Вычисляем произведение матриц
+        for (int i = 0; i < rowsA; i++)
+        {
+            for (int j = 0; j < colsB; j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < colsA; k++)
+                {
+                    sum += matrixA[i, k] * matrixB[k, j];
+                }
+                resultMatrix[i, j] = sum;
+            }
+        }
+
+        // Выводим результат
+        Console.WriteLine("Результат умножения матриц:");
+        PrintMatrix(resultMatrix);
+    }
+
+    static void PrintMatrix(int[,] matrix)
+    {
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
